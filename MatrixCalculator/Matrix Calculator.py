@@ -38,6 +38,8 @@ while h < numberOfMatrices:
 
 print(matrices)
 """
+
+"""
 # 2 Matrices
 matrix1Size = []
 matrix1 = []
@@ -77,4 +79,25 @@ for row in range(matrix2Size[0][0]):
     else:
         print("Wrong length, try again.")
         break
-#
+"""
+mat11 = [[2, 2, 2],
+         [2, 3, 2],
+         [2, 2, 2]]
+
+mat12 = [[2, 2, 2],
+         [2, 2, 2],
+         [2, 2, 3]]
+print(len(mat11), len(mat12))
+
+
+def add_matrices(mat1, mat2):
+    mat3 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+    for i in range(len(mat1)):
+        for k in range(len(mat2)):
+            mat3[i][k] = mat1[i][k] + mat2[i][k]
+
+    return mat3
+
+
+a = add_matrices(mat11, mat12)
+print(a)
