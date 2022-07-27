@@ -1,3 +1,4 @@
+# Multiple matrices
 """
 numberOfMatrices = int(input("Enter the number of matrices: "))
 matrices = []
@@ -37,10 +38,43 @@ while h < numberOfMatrices:
 
 print(matrices)
 """
-e = 1
-matrices2 = [[[2, 2], [4, 4], [4, 4]], [
-    [3, 3], [9, 9, 9], [9, 9, 9], [9, 9, 9]]]
-# print(matrices2[0][0][0])
-for list in matrices2:
-    print("matrix " + str(e), *list)
-    e += 1
+# 2 Matrices
+matrix1Size = []
+matrix1 = []
+
+matrix2Size = []
+matrix2 = []
+
+m1S = input("Enter first matrix size first rows, then columns like that 3,4 : ")
+m2S = input("Enter second matrix size first rows, then columns like that 3,4 : ")
+
+m1S = m1S.split(sep=",")
+m1S = list(map(int, m1S))
+matrix1Size.append(m1S)
+
+m2S = m2S.split(sep=",")
+m2S = list(map(int, m2S))
+matrix2Size.append(m2S)
+
+
+for row in range(matrix1Size[0][0]):
+    m1 = input("Enter next rows of matrix 1 like that 3,4,5,6 : ")
+    m1 = m1.split(sep=",")
+    m1 = list(map(int, m1))
+    print(m1)
+    if len(m1) == matrix1Size[0][1]:
+        matrix1.append(m1)
+    else:
+        print("Wrong length, try again.")
+        break
+
+for row in range(matrix2Size[0][0]):
+    m2 = input("Enter next rows of matrix 2 like that 3,4,5,6 : ")
+    m2 = m2.split(sep=",")
+    m2 = list(map(int, m2))
+    if len(m2) == matrix2Size[0][1]:
+        matrix2.append(m2)
+    else:
+        print("Wrong length, try again.")
+        break
+#
