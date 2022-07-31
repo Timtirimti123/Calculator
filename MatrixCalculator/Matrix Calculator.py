@@ -81,26 +81,20 @@ for row in range(matrix2Size[0][0]):
         break
 """
 mat11 = [[2, 2, 2],
+         [2, 2, 2],
          [2, 2, 2]]
 
-mat12 = [[5, 2],
-         [2, 2],
-         [2, 2]]
+mat12 = [[5, 2, 2],
+         [2, 2, 2],
+         [2, 2, 2]]
 print(len(mat11), len(mat12))
 
 
 def add_matrices(mat1, mat2):
-    mat3 = []
-    n = 0
-    for i in range(len(mat1)):
-        mat3.append([])
-        for k in range(len(mat1[0])):
-            mat3[n].append(0)
-        n += 1
     for i in range(len(mat1)):
         for k in range(len(mat2[0])):
-            mat3[i][k] = mat1[i][k] + mat2[i][k]
-    return mat3
+            mat1[i][k] = mat1[i][k] + mat2[i][k]
+    return mat1
 
 
 a = add_matrices(mat11, mat12)
@@ -108,17 +102,10 @@ print(a)
 
 
 def substract_matrices(mat1, mat2):
-    mat3 = []
-    n = 0
-    for i in range(len(mat1)):
-        mat3.append([])
-        for k in range(len(mat1[0])):
-            mat3[n].append(0)
-        n += 1
     for i in range(len(mat1)):
         for k in range(len(mat2[0])):
-            mat3[i][k] = mat1[i][k] - mat2[i][k]
-    return mat3
+            mat1[i][k] = mat1[i][k] - mat2[i][k]
+    return mat1
 
 
 a = substract_matrices(mat11, mat12)
@@ -170,17 +157,10 @@ print(a)
 
 
 def multiplying_by_scalar(scalar, mat1):
-    mat3 = []
-    n = 0
-    for i in range(len(mat1)):
-        mat3.append([])
-        for k in range(len(mat1[0])):
-            mat3[n].append(0)
-        n += 1
     for i in range(len(mat1)):
         for j in range(len(mat1[0])):
-            mat3[i][j] = mat1[i][j] * scalar
-    return mat3
+            mat1[i][j] = mat1[i][j] * scalar
+    return mat1
 
 
 c = multiplying_by_scalar(1.25, mat11)
