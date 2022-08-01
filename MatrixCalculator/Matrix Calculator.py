@@ -1,3 +1,64 @@
+mat11 = [[2, 2, 2],
+         [2, 2, 2],
+         [2, 2, 2]]
+
+mat12 = [[5, 2, 2],
+         [2, 2, 2],
+         [2, 2, 2]]
+
+
+def add_matrices(mat1, mat2):
+    for i in range(len(mat1)):
+        for k in range(len(mat2[0])):
+            mat1[i][k] = mat1[i][k] + mat2[i][k]
+    return mat1
+
+
+def substract_matrices(mat1, mat2):
+    for i in range(len(mat1)):
+        for k in range(len(mat2[0])):
+            mat1[i][k] = mat1[i][k] - mat2[i][k]
+    return mat1
+
+
+def matrix_multiplication(mat1, mat2):
+    mat3 = []
+    current_row = 0
+    for i in range(len(mat1)):
+        mat3.append([])
+        for k in range(len(mat2[0])):
+            mat3[current_row].append(0)
+        current_row += 1
+    for i in range(len(mat1)):
+        for j in range(len(mat2[0])):
+            for k in range(len(mat2)):
+                mat3[i][j] += mat1[i][k] * mat2[k][j]
+    return mat3
+
+
+def matrix_transposition(mat1):
+    mat3 = []
+    current_row = 0
+    for i in range(len(mat1[0])):
+        mat3.append([])
+        for k in range(len(mat1)):
+            mat3[current_row].append(0)
+        current_row += 1
+    for i in range(len(mat1)):
+        for j in range(len(mat1[0])):
+            mat3[j][i] = mat1[i][j]
+    return mat3
+
+
+def multiplying_by_scalar(scalar, mat1):
+    for i in range(len(mat1)):
+        for j in range(len(mat1[0])):
+            mat1[i][j] = mat1[i][j] * scalar
+    return mat1
+
+# def matrix_inverse(mat1):
+
+
 # Multiple matrices
 """
 numberOfMatrices = int(input("Enter the number of matrices: "))
@@ -34,13 +95,10 @@ while h < numberOfMatrices:
 
     h += 1
 
-
-
 print(matrices)
 """
-
-"""
 # 2 Matrices
+"""
 matrix1Size = []
 matrix1 = []
 
@@ -80,88 +138,3 @@ for row in range(matrix2Size[0][0]):
         print("Wrong length, try again.")
         break
 """
-mat11 = [[2, 2, 2],
-         [2, 2, 2],
-         [2, 2, 2]]
-
-mat12 = [[5, 2, 2],
-         [2, 2, 2],
-         [2, 2, 2]]
-print(len(mat11), len(mat12))
-
-
-def add_matrices(mat1, mat2):
-    for i in range(len(mat1)):
-        for k in range(len(mat2[0])):
-            mat1[i][k] = mat1[i][k] + mat2[i][k]
-    return mat1
-
-
-a = add_matrices(mat11, mat12)
-print(a)
-
-
-def substract_matrices(mat1, mat2):
-    for i in range(len(mat1)):
-        for k in range(len(mat2[0])):
-            mat1[i][k] = mat1[i][k] - mat2[i][k]
-    return mat1
-
-
-a = substract_matrices(mat11, mat12)
-print(a)
-
-mat11 = [[2, 2, 2],
-         [2, 2, 2]]
-
-mat12 = [[5, 2],
-         [2, 2],
-         [2, 2]]
-
-
-def matrix_multiplication(mat1, mat2):
-    mat3 = []
-    n = 0
-    for i in range(len(mat1)):
-        mat3.append([])
-        for k in range(len(mat2[0])):
-            mat3[n].append(0)
-        n += 1
-    for i in range(len(mat1)):
-        for j in range(len(mat2[0])):
-            for k in range(len(mat2)):
-                mat3[i][j] += mat1[i][k] * mat2[k][j]
-    return mat3
-
-
-a = matrix_multiplication(mat11, mat12)
-print(a)
-
-
-def matrix_transposition(mat1):
-    mat3 = []
-    n = 0
-    for i in range(len(mat1[0])):
-        mat3.append([])
-        for k in range(len(mat1)):
-            mat3[n].append(0)
-        n += 1
-    for i in range(len(mat1)):
-        for j in range(len(mat1[0])):
-            mat3[j][i] = mat1[i][j]
-    return mat3
-
-
-a = matrix_transposition(mat11)
-print(a)
-
-
-def multiplying_by_scalar(scalar, mat1):
-    for i in range(len(mat1)):
-        for j in range(len(mat1[0])):
-            mat1[i][j] = mat1[i][j] * scalar
-    return mat1
-
-
-c = multiplying_by_scalar(1.25, mat11)
-print(c)
